@@ -38,4 +38,37 @@ $(function () {
       }
     })
   }
+
+  // 点击启用禁用按钮，显示模态框
+  $('tbody').on("click", ".btn", function () {
+    // 显示模态框
+    $('#userModal').modal("show");
+    // 获取用户 id
+    currentId = $(this).parent().data("id");
+    // 获取需要修改的状态, 根据按钮的类名来判断具体传什么
+    // 禁用按钮 ? 0 : 1;
+    isDelete = $(this).hasClass("btn-danger") ? 0 : 1;
+  });
+
+  // 点击模态框的确认按钮，完成用户的启用禁用
+  $('#submitBtn').click(function () {
+    $.ajax({
+      type: "post",
+      url: "/user/updateUser",
+      data: {
+        id: currentId, // 用户id
+        isDelete: isDelete // 将用户改成什么状态, 1启用, 0禁用
+      },
+      dataType: "json",
+      success: function (info) {
+        console.log(info)
+        if (info.success) {
+          // 关闭模态框
+          $('#userModal').modal("hide"); // show hide
+          // 重新渲染页面
+          render();
+        }
+      }
+    })
+  })
 })
