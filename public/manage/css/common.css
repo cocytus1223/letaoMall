@@ -36,6 +36,7 @@ ul {
   margin-top: 150px;
 }
 
+/* aside */
 .lt_aside {
   position: fixed;
   left: 0;
@@ -124,6 +125,7 @@ ul {
   padding-left: 0px;
 }
 
+/* topbar */
 .lt_topbar {
   position: fixed;
   left: 0;
@@ -139,7 +141,6 @@ ul {
   padding-left: 0px;
 }
 
-
 .lt_topbar .icon_left,
 .lt_topbar .icon_right {
   width: 50px;
@@ -148,4 +149,11 @@ ul {
   text-align: center;
   color: #fff;
   font-size: 20px;
+}
+
+/* 图表 */
+.lt_content .echarts_left,
+.lt_content .echarts_right {
+  width: 48%;
+  height: 400px;
 }

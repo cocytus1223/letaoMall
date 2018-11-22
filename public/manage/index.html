@@ -13,7 +13,6 @@
 
 <body>
 
-
   <!-- 左侧侧边栏 -->
   <div class="lt_aside">
     <!-- 标题 -->
@@ -49,6 +48,20 @@
       <a class="icon_left pull-left" href="#"><i class="glyphicon glyphicon-align-justify"></i></a>
       <a class="icon_right pull-right" href="#"><i class="glyphicon glyphicon-log-out"></i></a>
     </div>
+
+    <div class="container-fluid">
+      <!-- 面包屑导航 -->
+      <ol class="breadcrumb mt_20">
+        <li><a href="index.html">管理系统</a></li>
+        <li class="active">首页</li>
+      </ol>
+
+      <!-- 两个图表 -->
+      <div class="lt_content">
+        <div class="echarts_left pull-left"></div>
+        <div class="echarts_right pull-right"></div>
+      </div>
+    </div>
   </div>
 
   <!-- 退出模态框 -->
@@ -75,6 +88,7 @@
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/echarts/echarts.min.js"></script>
   <script src="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
   <script src="./js/index.js"></script>
