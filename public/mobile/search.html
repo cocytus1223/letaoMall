@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
   <link rel="stylesheet" href="./lib/mui/css/mui.css">
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="./css/category.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/search.css" />
 </head>
 
 <body>
@@ -19,27 +19,22 @@
     <!-- 头部区域 -->
     <div class="lt_header">
       <a href="index.html" class="icon_left"><i class="fa fa-home"></i></a>
-      <h3>乐淘云购</h3>
+      <h3>搜索中心</h3>
       <a href="search.html" class="icon_right"><i class="fa fa-search"></i></a>
     </div>
     <!-- 主体区域 -->
     <div class="lt_main">
-      <!-- 左侧区域 -->
-      <div class="lt_category_left">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul>
-
-            </ul>
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <!-- 搜索框 -->
+          <div class="lt_search">
+            <input type="text" placeholder="请输入搜索关键字" class="search_input">
+            <button class="mui-btn mui-btn-primary search_btn">搜索</button>
           </div>
-        </div>
-      </div>
-      <!-- 右侧区域 -->
-      <div class="lt_category_right">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul class="mui-clearfix">
-            </ul>
+
+          <!-- 搜索历史 -->
+          <div class="lt_history">
+
           </div>
         </div>
       </div>
@@ -54,7 +49,7 @@
           </a>
         </li>
         <li>
-          <a href="category.html" class="current">
+          <a href="category.html">
             <i class="fa fa-bars"></i>
             <p>分类页</p>
           </a>
@@ -75,38 +70,29 @@
     </div>
   </div>
 
-  <!-- 左侧模态框 -->
-  <script type="text/html" id="leftTpl">
-    {{ each rows v i }}
-    <li>
-      <a data-id="{{ v.id }}" href="#" class="{{ i === 0 ? 'current' : ''}}">{{ v.categoryName }}</a>
-    </li>
-    {{ /each }}
-  </script>
-
-  <!-- 右侧模态框 -->
-  <script type="text/html" id="rightTpl">
-    {{ if rows.length === 0 }}
-      <p class="nomore">没有更多信息了</p>
-    {{ else }}
-  
-      {{ each rows v i }}
-      <li>
-        <a href="#">
-          <img src="{{ v.brandLogo }}" alt="">
-          <p>{{ v.brandName }}</p>
-        </a>
-      </li>
+  <!-- 搜索历史模态框 -->
+  <script type="text/html" id="searchTpl">
+    <div class="title">
+      <span class="mui-pull-left">搜索历史</span>
+      <span class="mui-pull-right btn_empty"><i class="fa fa-trash"></i>清空记录</span>
+    </div>
+    <div class="content">
+      {{ each list v i }}
+      <ul>
+        <li>
+          <a href="search_list.html?key={{v}}" class="mui-pull-left">{{ v }}</a>
+          <i data-index="{{i}}" class="mui-pull-right mui-icon mui-icon-closeempty btn_delete"></i>
+        </li>
+      </ul>
       {{ /each }}
-    {{ /if }}
+    </div>
   </script>
-
-
+  
   <script src="./lib/zepto/zepto.min.js"></script>
   <script src="./lib/mui/js/mui.js"></script>
   <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./js/common.js"></script>
-  <script src="./js/category.js"></script>
+  <script src="./js/search.js"></script>
 </body>
 
 </html>
