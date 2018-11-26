@@ -9,3 +9,29 @@ var gallery = mui('.mui-slider');
 gallery.slider({
   interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
 });
+
+// 解析地址栏参数的方法
+function getSearch(k) {
+  // 获取地址栏参数
+  var str = location.search;
+  // 解码成中文, 将地址栏编码后的中文, 进行解码
+  str = decodeURI(str);
+
+  // 去掉第一个问号
+  str = str.slice(1);
+
+  // split 将字符串分割数组
+  var arr = str.split("&");
+
+  var obj = {};
+
+  // 遍历数组, 取出每个键和值
+  arr.forEach(function (v, i) {
+    var key = v.split("=")[0];
+    var value = v.split("=")[1];
+
+    obj[key] = value;
+  })
+
+  return obj[k];
+}

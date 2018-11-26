@@ -127,3 +127,35 @@ body {
   top: 10px;
   border-radius: 0px 5px 5px 0px;
 }
+
+/* 公共的产品样式 */
+
+.lt_product {
+  padding: 10px;
+  text-align: center;
+}
+
+.lt_product li {
+  float: left;
+  width: 48%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.lt_product li:nth-child(2n+1) {
+  margin-right: 4%;
+}
+
+.lt_product li a {
+  display: block;
+  padding: 10px;
+}
+
+.lt_product li .price {
+  color: red;
+}
+
+.lt_product li .oldPrice {
+  text-decoration: line-through;
+}
